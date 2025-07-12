@@ -1,0 +1,21 @@
+:root {
+    /* Palette */
+    --primary-solid: #e774ac;
+    --primary-bold: #C14B82;
+    --primary-light: #FBAFCC;
+  
+    --secondary-light: #e1a1c7;
+    --secondary-light-tr: #e1a1c7ce;
+    --secondary-bold: #c36ca0eb;
+    --secondary-bold-tr: #c16c976b;
+
+    --tertiary: #ecd8b7;
+
+    --light-bg-solid: #FAFAFF;
+    --light-font-solid: #fff;
+    --dark-font-solid: #c04b1c;
+
+    /* Typography */
+    --base-font: 'Inter', sans-serif;
+    --alternative-font: "Permanent Marker", cursive;
+}

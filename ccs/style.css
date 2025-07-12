@@ -1,0 +1,418 @@
+@import url(./variables.css);
+
+li {
+  list-style: none !important;
+  padding-left: 0;
+}
+
+/* Fuente predeterminada del sitio */
+body {
+  position: relative;
+  font-family: "Roboto", sans-serif; /* Fuente importada desde Google Fonts */
+  margin: 0; /* Elimina márgenes del navegador */
+  padding: 0; /* Elimina relleno por defecto */
+  /* background-image: rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5), url('../Imagenes/libreriakawai.png'); */
+  background-image: url("../Imagenes/libreriakawai.png");
+  z-index: -1;
+}
+
+body::before {
+  content: "";
+  z-index: -1;
+  background-color: rgb(0, 0, 0, 0);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(2px) contrast(0.5) brightness(1.3);
+}
+
+/* Estilo para el encabezado de la página */
+header {
+  background-color: var(--primary-light); /* Fondo verde */
+  color: var(--primary-solid); /* Texto blanco */
+  padding: 20px; /* Espacio interior */
+  text-align: center; /* Centra el texto */
+}
+
+header h1 {
+  font-family: var(--alternative-font);
+  margin: 20px;
+  color: var(--primary-bold);
+}
+
+.navegacion {
+  background-color: var(--primary-solid) !important;
+  font-family: var(--alternative-font);
+  text-decoration: none;
+  font-size: x-large;
+}
+
+.carrito-link {
+  margin-right: 24px;
+  font-size: xx-large;
+}
+
+@media (max-width: 991px) {
+  .carrito-link {
+    display: none;
+  }
+
+  .navbar-nav .nav-item:last-child {
+    display: block;
+  }
+}
+
+@media (max-width: 991px) {
+  .carrito-link {
+    display: none;
+  }
+
+  .navbar-nav .nav-item:last-child {
+    display: block;
+  }
+}
+
+@media (min-width: 992px) {
+  .carrito-link {
+    display: block;
+  }
+
+  .navbar-nav .nav-item:last-child {
+    display: none;
+  }
+}
+
+.text-primary-bold {
+  color: var(--primary-bold) !important;
+}
+
+.text-tertiary {
+  color: var(--tertiary) !important;
+}
+
+/* Hero */
+
+.hero {
+  background-image: url(../Imagenes/bannerTodoKawaiStore.jpg);
+  background-color: #edd4d8;
+  background-size: 900px;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+  height: 400px;
+  color: whitesmoke;
+  position: relative;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  align-content: center;
+}
+
+.hero__content div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  color: #000;
+  background-color: #ccccccb4;
+  padding: 12px;
+  border-radius: 15px;
+}
+
+.hero__content p {
+  font-size: 20px;
+}
+
+h2 {
+  font-family: var(--alternative-font);
+  color: var(--primary-bold);
+}
+
+#inicio p {
+  font-size: large;
+  color: var(--dark-font-solid);
+}
+
+p em {
+  font-size: large;
+  color: var(--dark-font-solid);
+}
+
+section {
+  padding: 20px; /* Espacio interior */
+  text-align: center; /* Centra el texto */
+  background-color: var(--secondary-light-tr);
+
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
+main {
+  font-family: var(--base-font);
+  color: var(--dark-font-solid);
+}
+
+#nosotros iframe {
+  aspect-ratio: 16 / 9;
+}
+
+/* Contenedor de los productos con Flexbox */
+.productos-container {
+  display: flex; /* Activa Flexbox */
+  justify-content: center; /* Centra horizontalmente */
+  gap: 5px; /* Espacio entre productos */
+  flex-wrap: wrap; /* Permite que bajen a otra línea en pantallas pequeñas */
+  margin-top: 20px; /* Espacio superior */
+}
+
+/* Cada tarjeta de producto */
+.productos-container .producto {
+  width: 18rem !important;
+}
+
+/* Imágenes de los productos */
+.imagen-tarjeta {
+  aspect-ratio: 1;
+  object-fit: cover !important; /* Cubre el área sin deformarse */
+}
+
+.titulo-tarjeta {
+  text-align: center;
+}
+
+/* sacar botones por defecto del input*/
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.productos-container .cantidad {
+  display: none;
+}
+
+.cantidad {
+  width: 100px;
+  padding: 8px;
+  border: 1px solid var(--primary-solid);
+  border-radius: 25px;
+  justify-self: center;
+}
+
+.cantidad input {
+  height: 25px;
+  width: 30px;
+  border: 1px solid var(--primary-solid);
+  /*   border-radius: 10px; */
+}
+
+.cantidad button {
+  border-width: 0;
+  color: var(--primary-solid);
+}
+
+/* Estilo para el formulario de contacto */
+form {
+  max-width: 800px; /* Ancho máximo */
+  margin: 0 auto; /* Centrado horizontal */
+}
+
+/* Campos del formulario */
+input,
+textarea,
+select {
+  padding: 10px; /* Espacio interior */
+  border: 1px solid #b07ca0 !important; /* Borde gris claro */
+  background-color: var(--tertiary) !important;
+  border-radius: 4px; /* Bordes redondeados */
+  transition: all 0.6s ease-in-out !important;
+}
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--secondary-bold) !important; /* Cambia el borde */
+  box-shadow: 0 0 0 0.2rem var(--secondary-bold-tr) !important; /* Cambia el "glow" */
+  outline: none !important;
+}
+
+.btn-pink {
+  background-color: var(--primary-bold);
+  border-color: #af4c90 !important;
+}
+
+.btn-pink:hover {
+  background-color: var(--primary-solid); /* Fondo verde */
+  border-color: var(--primary-solid) !important;
+}
+
+.btn-pink:active {
+  background-color: var(--primary-bold) !important; /* Fondo verde */
+  border-color: var(--primary-bold) !important;
+}
+
+/* Botón del formulario */
+.btn-contacto {
+  width: 300px;
+}
+
+/* Estilo para el pie de página */
+footer {
+  background-color: var(--secondary-bold); /* Fondo oscuro */
+  color: white; /* Texto blanco */
+  text-align: center; /* Centrado de texto */
+  padding: 15px; /* Espacio interior */
+  margin-top: 30px; /* Separación del contenido anterior */
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-contenido {
+  display: flex;
+  justify-content: space-around;
+  padding: 40px 0;
+  border: 2px solid var(--tertiary);
+  background-color: var(--tertiary);
+  border-radius: 12px;
+  margin-bottom: 24px;
+}
+
+footer nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+}
+
+footer ul {
+  padding: 0;
+  margin: 0;
+}
+
+.footer__links-internos {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.footer__links-redes {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+footer i {
+  font-size: xx-large;
+}
+
+footer a {
+  color: var(--primary-bold);
+  font-family: var(--alternative-font);
+  text-decoration: none;
+}
+footer iframe {
+  border-radius: 12px;
+}
+
+/* ------------------ MEDIA QUERIES ------------------ */
+
+/* Media Query para CELULARES (pantallas pequeñas, hasta 600px) */
+@media (max-width: 600px) {
+  nav ul {
+    flex-direction: column; /* Muestra los enlaces uno debajo del otro */
+    gap: 10px; /* Menor espacio entre ellos */
+  }
+
+  .productos-container {
+    flex-direction: column; /* Apila los productos en una columna */
+    align-items: center; /* Centra verticalmente */
+  }
+
+  #nosotros iframe {
+    width: 100%;
+  }
+}
+
+/* Media Query para TABLETS (de 601px a 1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .productos-container {
+    justify-content: space-evenly; /* Distribuye los productos uniformemente */
+  }
+
+  #nosotros iframe {
+    width: 80%;
+  }
+}
+
+/* Media Query para PC (más de 1024px) */
+@media (min-width: 1025px) {
+  .productos-container {
+    justify-content: space-between; /* Aumenta el espacio entre productos */
+  }
+
+  #nosotros iframe {
+    width: 45%;
+  }
+}
+
+/* ------------------ Carrito ------------------ */
+
+/* Contenedor de los productos con Flexbox */
+
+.lista-prod {
+  text-align: left;
+  font-family: var(--base-font);
+  color: var(--primary-bold);
+  padding: 15px;
+  border: #af4c90;
+}
+
+.cabecera-carrito {
+  display: flex;
+  flex-direction: row;
+  /* gap: 20px; */
+  justify-content: space-evenly;
+}
+
+.contenedor-carrito {
+  display: flex; /* Activa Flexbox */
+  flex-direction: column;
+  justify-items: center;
+  justify-content: space-around; /* Centra horizontalmente */
+  gap: 5px; /* Espacio entre productos */
+  flex-wrap: wrap; /* Permite que bajen a otra línea en pantallas pequeñas */
+  margin-bottom: 30px;
+}
+
+.tarjeta-producto {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid var(--primary-solid);
+  border-radius: 15px;
+  padding: 10px;
+}
+
+.tarjeta-producto img {
+  height: 150px;
+  border-radius: 15px;
+}
+
+.tarjeta-producto .cantidad button {
+  background-color: var(--secondary-light-tr);
+}
+
+.boton-eliminar {
+  background-color: #cccccc00;
+  color: var(--primary-solid);
+  border: 2px solid var(--primary-solid) !important;
+  border-radius: 50%;
+}
+
+.resumen-carrito {
+  display: none;
+}
