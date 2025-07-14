@@ -1,3 +1,5 @@
+import { validarRango } from "./utils.js";
+
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 const eliminarProducto = (event) => {
@@ -43,10 +45,14 @@ const mostrarCarrito = () => {
             <span>$${item.precio} </span>
           </div>
             <div class="cantidad">
-              <button data-id=${item.id} data-value="-1" class="btn-menos">&minus;</button>
-              <input id="cantidad-${item.id}"  type="number" disabled
+              <button data-id=${
+                item.id
+              } data-value="-1" class="btn-menos">&minus;</button>
+              <input id="cantidad-input-${item.id}"  type="number" disabled
               value="${item.cantidad}" min="1" max="99">
-              <button data-id=${item.id} data-value="1" class="btn-mas">&plus;</button>
+              <button data-id=${
+                item.id
+              } data-value="1" class="btn-mas">&plus;</button>
             </div>           
           <div>
             <p>Precio</p>
@@ -69,21 +75,29 @@ const mostrarCarrito = () => {
     botonMas.addEventListener("click", modificarCantidad);
   });
 };
-  const modificarCantidad = (event) => {
-   let btn = event.target;
-   let id = btn.getAttribute("data-id");
-   let valor = btn.getAttribute("data-value");
-   const cantidad = document.getElementById("cantidad-" + id);
-   cantidad.value = parseInt(cantidad.value) + parseInt(valor);
-   const validarId = (item) => item.id == id;
-   const indiceCarrito = carrito.findIndex(validarId);
-   carrito[indiceCarrito].cantidad = cantidad.value;
-   localStorage.setItem("carrito", JSON.stringify(carrito));
 
-   mostrarTotalCompra();
+const modificarCantidad = (event) => {
+  let btn = event.target;
+  let id = btn.getAttribute("data-id");
+  let valor = btn.getAttribute("data-value");
+  const cantidad = document.getElementById("cantidad-input-" + id);
 
+  const nuevaCantidad = validarRango(
+    parseInt(cantidad.value) + parseInt(valor)
+  );
 
- };
+  if (cantidad.value != nuevaCantidad) {
+    // modificar en el DOM
+    cantidad.value = nuevaCantidad;
+
+    // modificar en carrito
+    const indiceCarrito = carrito.findIndex((item) => item.id == id);
+    carrito[indiceCarrito].cantidad = cantidad.value;
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+
+    mostrarTotalCompra();
+  }
+};
 
 const calcularPrecioCompra = () => {
   return carrito
