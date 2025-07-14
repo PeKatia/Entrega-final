@@ -124,6 +124,12 @@ const vaciarProductos = () => {
   localStorage.removeItem("carrito");
 };
 
+const comprar = () => {
+  alert("Gracias por su compra");
+  vaciarProductos();
+  window.location.href="index.html";
+};
+
 const mostrarTotalCompra = () => {
   let contenedorCarrito = document.querySelector(".resumen-carrito");
   if (carrito.length === 0) {
@@ -140,7 +146,7 @@ const mostrarTotalCompra = () => {
       <span class="cantidad-total">${cantidad}</span></p>
       <p>Total compra: <span class="precio-total">$${precio}</span></p>
       
-      <button type="submit" class="btn btn-primary btn-pink">
+      <button id="btn-comprar" type="submit" class="btn btn-primary btn-pink">
         Finalizar compra
       </button>
       <button   type="button" class="btn btn-primary btn-pink btn-vaciarCarrito" >
@@ -155,6 +161,9 @@ const mostrarTotalCompra = () => {
   const botonVaciarCarrito =
     contenedorCarrito.querySelector(".btn-vaciarCarrito");
   botonVaciarCarrito.addEventListener("click", vaciarProductos);
+
+  const botonFinalizarCompra = document.getElementById("btn-comprar");
+  botonFinalizarCompra.addEventListener("click", comprar);
 };
 
 mostrarCarrito();
